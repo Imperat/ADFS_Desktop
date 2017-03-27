@@ -2,18 +2,41 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>ADFS</title>
+    <script> window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js'); </script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>ADFS</h1>
+    <div class="col-md-12">
+      <div class="col-md-3">
+        <div class="row">
+          <a class="main-pane-teams" href="#">Команды</a>
+        </div>
+        <div class="row">
+          <a href="/release_notes/xRTc7WKyvbTyCqmgu">Матчи</a>
+        </div>
+        <div class="row">
+          <a href="/release_notes/xRTc7WKyvbTyCqmgu">Игроки</a>
+        </div>
+        <div class="row">
+          <a href="/release_notes/xRTc7WKyvbTyCqmgu">Чемпионаты</a>
+        </div>
+      </div>
+    </div>
+
   </body>
 
   <script>
-    // You can also require other files to run in this process
     require('./renderer.js')
+    $('.main-pane-teams').on('click', (e) => {
+      e.preventDefault();
+      $.get('https://sarfootball.xyz/logic/api/v1/matchs/', null, (data) => {
+        console.log('kefal!');
+        console.log(data);
+      });
+    });
   </script>
 </html>
